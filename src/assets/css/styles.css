@@ -356,6 +356,7 @@ a:focus {
 
 .team_section .team_container {
   padding: 0 15px;
+  padding-bottom: 50px;
 }
 
 .team_section .team_container .box {
@@ -431,7 +432,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 15px;
+  margin: 20px;
 }
 
 .client_section .box .img-box {
@@ -487,8 +488,30 @@ a:focus {
   color: #00204a;
   margin-bottom: 10px;
 }
+.client_section .carousel-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
 
-.client_section .owl-carousel .owl-nav {
+.client_section .owl-carousel {
+  display: flex;
+  /* overflow: hidden; */
+  /* border: 5px solid red; */
+  /* width: 1070px; */
+  margin-bottom: 9rem;
+  transition: transform 0.5s ease-in-out;
+}
+.client_section .over-flow {
+  width: 1070px;
+  overflow: hidden;
+}
+.client_section .owl-carousel .item .box {
+  width: 500px;
+}
+
+/* .client_section .owl-carousel .owl-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -496,24 +519,23 @@ a:focus {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 45px;
-}
-
-.client_section .owl-carousel .owl-nav .owl-prev,
-.client_section .owl-carousel .owl-nav .owl-next {
+} */
+.client_section .carousel-wrap button {
+  outline: none;
   width: 55px;
   height: 55px;
   background-color: #ffffff;
-  color: #000000;
-  outline: none;
+  /* color: #000000; */
   bottom: 0px;
-  font-size: 24px;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.014);
+          box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.014);
 }
 
-.client_section .owl-carousel .owl-nav .owl-prev:hover,
-.client_section .owl-carousel .owl-nav .owl-next:hover {
+.client_section .carousel-wrap .owl-prev:hover,
+.client_section .carousel-wrap .owl-next:hover {
   color: #00204a;
+  
 }
 
 /* footer */
