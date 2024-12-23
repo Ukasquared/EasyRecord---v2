@@ -38,12 +38,12 @@ function Navigation(args) {
                 </NavLink>
               </NavItem >
               <NavItem className="nav-padding">
-                <NavLink href="https://github.com/reactstrap/reactstrap">
+                <NavLink href="/register">
                   Register
                 </NavLink>
               </NavItem>
               <NavItem className="nav-padding">
-                <NavLink href="https://github.com/reactstrap/reactstrap">
+                <NavLink href="/login">
                   Log In
                 </NavLink>
               </NavItem>

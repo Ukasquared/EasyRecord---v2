@@ -12,6 +12,8 @@ const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 
 const Starter = lazy(() => import("../views/Starter.js"));
 const About = lazy(() => import("../views/About.js"));
+const Login = lazy(() => import("../layouts/login.jsx"));
+const Register = lazy(() => import("../layouts/register.jsx"));
 
 /*****Routes******/
 
@@ -19,6 +21,14 @@ const ThemeRoutes = [
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/register",
+    element: <Register/>
   },
   {
     path: "/dashboard",
