@@ -40,13 +40,13 @@ def login_user():
             if email and password and role:
                 state = auth.validate_login(email, password)               
             if state:
-                session_id = auth.create_session(email)
-                print(session_id)
+                # session_id = auth.create_session(email)
+                # print(session_id)
                 # create a jwt token with the users role included
                 access_token = create_access_token(identity=role, additional_claims={'email': email}, expires_delta=(timedelta(minutes=30)))
                 response_body = jsonify({'token': access_token, 'role': role})
                 response = make_response(response_body, 200)
-                response.set_cookie("session_id", session_id, httponly=True)
+                # response.set_cookie("session_id", session_id, httponly=True)
                 return response
         # abort(405)
     

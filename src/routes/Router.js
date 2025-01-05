@@ -1,6 +1,7 @@
 //import { element } from "prop-types";
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
+import ProtectedLayout from "./protectedRoute.js"
 
 /**** Home Page */
 const Home = lazy(() => import("../layouts/Home.jsx"));
@@ -32,7 +33,9 @@ const ThemeRoutes = [
   },
   {
     path: "/dashboard",
-    element: <FullLayout />,
+    element: (<ProtectedLayout> 
+                <FullLayout /> 
+              </ProtectedLayout>) ,
     children: [
       { path: "/dashboard/starter", element: <Navigate to="/starter" /> },
       { path: "/dashboard/starter", exact: true, element: <Starter /> },

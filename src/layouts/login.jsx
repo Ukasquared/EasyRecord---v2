@@ -1,9 +1,11 @@
 import "../assets/css/login.css"
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
+    const navigate = useNavigate();
     const [formData, setformData] = useState({
         email: "", 
         password: ""});
@@ -29,6 +31,8 @@ function Login() {
 
             if (response.ok) {
                 console.log("successfully logged" + data)
+                localStorage.setItem("token", data.token)
+                navigate("/dashboard")
             } else {
                 console.log("unsuccessful")
             }
