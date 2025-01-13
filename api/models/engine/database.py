@@ -34,7 +34,7 @@ class Database:
     def connect(self) -> None:
         """connect to the database
         and also create a session"""
-        # Base.metadata.drop_all(self._engine)
+        Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         Session = sessionmaker(bind=self._engine, expire_on_commit=False)
         session = scoped_session(Session)

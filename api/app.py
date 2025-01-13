@@ -4,6 +4,18 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from .views import app_routes
 from flask_jwt_extended import JWTManager
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("app.log", mode="a"),
+    ],
+)
+
+logger = logging.getLogger("FlaskApp")
 
 
 app = Flask(__name__)
@@ -26,6 +38,7 @@ def expired_token_handler(jwt_header, jwt_payload):
 def not_found(error) -> str:
     """ Not found handler
     """
+    app.logger.info("a 404 error")
     return jsonify({"error": "Not found"}), 404
 
 

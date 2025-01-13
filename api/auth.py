@@ -7,6 +7,11 @@ from api.models.course import Course
 import api.models as models
 from sqlalchemy.orm.exc import NoResultFound
 import bcrypt, uuid
+import logging
+from flask import current_app 
+
+logger = logging.getLogger("FlaskApp")
+
 
 
 def hashpassword(password):
@@ -35,17 +40,18 @@ class Auth:
             pass_word = kwargs['password']
             password = hashpassword(pass_word)
             kwargs['password'] = password
-            if kwargs['role'] == "student":
+            role = kwargs.get('role')
+            if role and role == "student":
                 user = models.storage.find_user(Student, email=email)
                 if user:
                     raise ValueError('email already registered')
                 obj =  Student(**kwargs)
-            elif kwargs['role'] == "teacher":
+            elif role and role == "teacher":
                 user = models.storage.find_user(Teacher, email=email)
                 if user:
                     raise ValueError('email already registered')
                 obj = Teacher(**kwargs)
-            elif kwargs['role'] == "parent":
+            elif role and role == "parent":
                 user = models.storage.find_user(Parent, email=email)
                 if user:
                     raise ValueError('email already registered')
@@ -55,10 +61,13 @@ class Auth:
                 print(user)
                 if user:
                     raise ValueError('email already registered')
+                kwargs['role'] = 'admin'
+                current_app.logger.info(f'i also ran {kwargs}')
                 obj = Admin(**kwargs)
+
             obj.new()
-        except:
-            raise ValueError('registration not successful; incomplete data')
+        except ValueError as e:
+            raise ValueError(str(e))
         return str(obj.id)
     
     def register_course(self, admin_id, teacher_id, title):

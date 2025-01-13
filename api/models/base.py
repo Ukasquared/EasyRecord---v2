@@ -20,7 +20,7 @@ class BaseModel:
     lastname = Column(String(50), nullable=False)
     email = Column(String(50), nullable=False)
     gender = Column(String(50), nullable=False)
-    photo = Column(String(50), nullable=False)
+    file = Column(String(50), nullable=False)
     role = Column(String(50), nullable=False)
     religion = Column(String(50), nullable=False)
     created_at = Column(Date)

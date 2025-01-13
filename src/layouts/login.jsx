@@ -2,7 +2,7 @@ import "../assets/css/login.css"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
     const navigate = useNavigate();
@@ -32,7 +32,16 @@ function Login() {
             if (response.ok) {
                 console.log("successfully logged" + data)
                 localStorage.setItem("token", data.token)
-                navigate("/dashboard")
+                const decodeToken = jwtDecode(data.token)
+                let navigation = ""
+                if (decodeToken.role === "admin") {
+                    navigation = "/dashboard-admin"
+                } else if (decodeToken.role === "teacher") {
+                     navigation = "/dashboard-teacher"
+                } else {
+                     navigation = "/dashboard-parent"
+                }
+                navigate(navigation);
             } else {
                 console.log("unsuccessful")
             }

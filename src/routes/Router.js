@@ -7,7 +7,9 @@ import ProtectedLayout from "./protectedRoute.js"
 const Home = lazy(() => import("../layouts/Home.jsx"));
 
 /****Layouts*****/
-const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
+const AdminLayout = lazy(() => import("../layouts/AdminLayout.js"));
+const TeacherLayout = lazy(() => import("../layouts/TeacherLayout.js"));
+const ParentLayout = lazy(() => import("../layouts/ParentLayout.js"));
 
 /***** Pages ****/
 
@@ -32,14 +34,32 @@ const ThemeRoutes = [
     element: <Register/>
   },
   {
-    path: "/dashboard",
+    path: "/dashboard-admin",
     element: (<ProtectedLayout> 
-                <FullLayout /> 
+                <AdminLayout /> 
               </ProtectedLayout>) ,
     children: [
-      { path: "/dashboard/starter", element: <Navigate to="/starter" /> },
-      { path: "/dashboard/starter", exact: true, element: <Starter /> },
-      { path: "/dashboard/about", exact: true, element: <About /> },
+      { path: "/dashboard-admin/starter", element: <Navigate to="/starter" /> },
+      { path: "/dashboard-admin/starter", exact: true, element: <Starter /> },
+      { path: "/dashboard-admin/about", exact: true, element: <About /> },
+    ],
+  },
+  {
+    path: "/dashboard-teacher",
+    element: (<ProtectedLayout> 
+                <TeacherLayout /> 
+              </ProtectedLayout>) ,
+    children: [
+
+    ],
+  },
+  {
+    path: "/dashboard-parent",
+    element: (<ProtectedLayout> 
+                <ParentLayout /> 
+              </ProtectedLayout>) ,
+    children: [
+      
     ],
   },
 ];

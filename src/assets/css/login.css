@@ -81,3 +81,21 @@ input[type="submit"], .sign-up a{
     top: 2rem;
     left: 30rem;
 }
+
+.display {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 5s ease-in-out;
+    right: -10rem;
+    top: -10rem;
+
+}
+
+.show {
+    opacity: 1;
+    right: 10rem;
+    top: 10rem;
+}

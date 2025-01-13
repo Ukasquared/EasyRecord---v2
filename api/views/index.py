@@ -1,11 +1,14 @@
 from ..views import app_routes
-from flask import request, send_from_directory
+from flask import request, send_from_directory, current_app
 from werkzeug.utils import secure_filename
 from api.auth import Auth
 from flask import abort, jsonify, make_response
 from flask_jwt_extended import create_access_token
 from datetime import timedelta
 import os
+import logging
+
+logger = logging.getLogger("FlaskApp")
 
 auth = Auth()
 
@@ -44,7 +47,7 @@ def login_user():
                 # print(session_id)
                 # create a jwt token with the users role included
                 access_token = create_access_token(identity=role, additional_claims={'email': email}, expires_delta=(timedelta(minutes=30)))
-                response_body = jsonify({'token': access_token, 'role': role})
+                response_body = jsonify({'token': access_token})
                 response = make_response(response_body, 200)
                 # response.set_cookie("session_id", session_id, httponly=True)
                 return response
@@ -91,26 +94,33 @@ def reset_password():
 # this should hand also sign up
 @app_routes.route('/signup', methods=['POST'], strict_slashes=False)
 def sign_up():
-    """uploads, 
+    """uploads,
     a picture to 
     dashboard"""
-    if request.method == 'POST':
-        form_data = dict(request.form)
-        if 'photo' not in request.files:
-            abort(400)
-        file = request.files.get('photo')
-        if file.filename == '':
-            abort(400)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(uploads, filename))
-        form_data['photo'] = filename
-        try:
-            obj_id = auth.register_user(**form_data)
-        except ValueError:
-            abort(400)
-        print(obj_id)
-        return jsonify({'message': obj_id}), 200
+    try :
+        if request.method == 'POST':
+            form_data = dict(request.form)
+            current_app.logger.info(f"this is the data recieved from the form {form_data}")
+            if 'file' not in request.files:
+                current_app.logger.info(f'i ran {request.files}')
+                return jsonify({"error": "No file part in the request"}), 400
+            file = request.files.get('file')
+            current_app.logger.info(f'i ran {file}')
+            if file.filename == '':
+                abort(400)
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(uploads, filename))
+            form_data['file'] = filename
+            try:
+                current_app.logger.info(f'i also ran {form_data}')
+                obj_id = auth.register_user(**form_data)
+            except ValueError as e:
+              return jsonify({"error": f"{str(e)}"}), 400 
+            print(obj_id)
+            return jsonify({'message': obj_id}), 200
+    except:
+        return jsonify({"error": "Not Found"}), 404 
 
 # route to serve file
 @app_routes.route(f"/{uploads}/<path:filename>", methods=["GET"])

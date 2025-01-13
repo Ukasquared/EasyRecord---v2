@@ -14,7 +14,7 @@ import {
   Button,
 } from "reactstrap";
 import Logo from "./Logo";
-import { ReactComponent as LogoWhite } from "../assets/images/logos/materialprowhite.svg";
+// import { ReactComponent as LogoWhite } from "../assets/images/logos/materialprowhite.svg";
 import user1 from "../assets/images/users/user4.jpg";
 
 const Header = () => {
@@ -35,8 +35,8 @@ const Header = () => {
         <div className="d-lg-block d-none me-5 pe-3">
           <Logo />
         </div>
-        <NavbarBrand href="/">
-          <LogoWhite className=" d-lg-none" />
+        <NavbarBrand className="d-lg-none" href="/">
+          <Logo  />
         </NavbarBrand>
         <Button
           color="primary"
@@ -65,23 +65,22 @@ const Header = () => {
         <Nav className="me-auto" navbar>
           <NavItem>
             <Link to="/starter" className="nav-link">
-              Starter
+              Enrollment
             </Link>
           </NavItem>
           <NavItem>
             <Link to="/about" className="nav-link">
-              About
+              Notice
             </Link>
           </NavItem>
           <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
-              DD Menu
+              School fees
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
+              <DropdownItem>Complete Payment</DropdownItem>
+              <DropdownItem>Incomplete Payment </DropdownItem>
+              <DropdownItem>No Payment Made</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
@@ -99,7 +98,6 @@ const Header = () => {
             <DropdownItem>My Account</DropdownItem>
             <DropdownItem>Edit Profile</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem>
             <DropdownItem>Inbox</DropdownItem>
             <DropdownItem>Logout</DropdownItem>
           </DropdownMenu>
