@@ -35,8 +35,8 @@ const Header = () => {
         <div className="d-lg-block d-none me-5 pe-3">
           <Logo />
         </div>
-        <NavbarBrand className="d-lg-none" href="/">
-          <Logo  />
+        <NavbarBrand className="d-lg-none logo" href="/">
+          easyrecord
         </NavbarBrand>
         <Button
           color="primary"

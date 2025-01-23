@@ -35,11 +35,11 @@ function Login() {
                 localStorage.setItem("token", data.token)
                 const decodeToken = jwtDecode(data.token)
                 console.log(decodeToken)
-                console.log(decodeToken.role)
+                console.log(decodeToken.sub)
                 let navigation = ""
-                if (decodeToken.role === "admin") {
+                if (decodeToken.sub === "admin") {
                     navigation = "/dashboard-admin"
-                } else if (decodeToken.role === "teacher") {
+                } else if (decodeToken.sub === "teacher") {
                      navigation = "/dashboard-teacher"
                 } else {
                      navigation = "/dashboard-parent"
