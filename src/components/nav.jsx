@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Logo from "../layouts/Logo"
+// import Logo from "../layouts/Logo"
 
 import {
   Collapse,
@@ -20,7 +20,7 @@ function Navigation(args) {
     
     <div>
       <Navbar {...args} expand="md" >
-        <NavbarBrand href="/"><Logo/></NavbarBrand>
+        <NavbarBrand href="/" className="logo">easyrecord</NavbarBrand>
         <NavbarToggler onClick={toggle}/>
         <Collapse isOpen={isOpen} className="nav-colapse" style={{flexGrow: "0"}} navbar>
           <Nav className="" navbar>

@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { Container } from "reactstrap";
 
-const FullLayout = () => {
+const Dashboard = () => {
   return (
     <main>
       {/********header**********/}
@@ -26,4 +26,4 @@ const FullLayout = () => {
   );
 };
 
-export default FullLayout;
+export default Dashboard;

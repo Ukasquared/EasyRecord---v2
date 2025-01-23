@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef} from "react";
 import "../assets/css/login.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 function Register() {
-    const [formData, setformData] = useState({
+    let data = {
         firstname: "",
         lastname: "",
         email: "",
         password: "",
-        file: null,
+        file: "",
         religion: "christianity",
         gender: ""
-    })
+    }
+    
+    const [formData, setformData] = useState(data)
+    const fileInput = useRef(null)
 
-    const [error, setError] = useState("")
+    const [error, setError] = useState(false)
     const [visibility, setVisiblity] = useState(false)
 
 
@@ -52,28 +55,33 @@ function Register() {
 
             } else {
                 console.log("unsuccessful: " + data.error)
-                setError("unsuccessful: " + data.error)
+                setError(true)
             }
 
         } catch (error) {
            console.log("error happened: " + error) 
         }
-
+        // setError("")
+        setformData(data)
+        fileInput.current.value = "";
     }
 
     useEffect(()=>{
-        setVisiblity(true)
+        if (error) {
+            setVisiblity(true)
         const timer = setTimeout(() => {
             setVisiblity((false))
+            setError("")
         }, 5000);
 
         return () => clearTimeout(timer)
+        }
     }, [error])
 
     return (
         <section>
             <div  className={`display ${visibility ? 'show' : ''}`}>
-                {error && (<p style={{color: "red"}}>{error}</p>)}
+                {error && (<p style={{color: "red"}}>unsuccessful: email already registered</p>)}
             </div>
             <div className="register">
         <div className="admin-signup all-style">
@@ -91,16 +99,16 @@ function Register() {
                 <label htmlFor="password">Password</label><br/>
                 <input onChange={handleChange} value={formData.password} type="password" name="password" id="password" required/><br/>
                 <label htmlFor="file">Select an profile picture</label><br/>
-                <input onChange={handleFileChange} type="file" id="file" name="file" required /><br/>
+                <input onChange={handleFileChange} type="file" id="file" name="file" ref={fileInput}  required /><br/>
                 <select onChange={handleChange} value={formData.religion} name="religion" id="options">
                     <option value="Christianity">Christianity</option>
                     <option value="Muslim">Muslim</option>
                 </select><br/>
                 <div>
                 <label htmlFor="gender">Gender:&nbsp;&nbsp;&nbsp;</label>
-                <input onChange={handleChange} value="male" type="radio" name="gender" id="male"/>
+                <input onChange={handleChange} value="male" type="radio" name="gender" id="male" checked={formData.gender === 'male'}/>
                 <label htmlFor="male">male&nbsp;&nbsp;</label>
-                <input onChange={handleChange} value="female" type="radio" name="gender" id="female"/>
+                <input onChange={handleChange} value="female" type="radio" name="gender" id="female" checked={formData.gender === 'female'}/>
                 <label htmlFor="gender">female</label>
                 </div>
                 <input type="submit" value="Submit"/>

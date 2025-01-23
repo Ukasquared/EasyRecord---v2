@@ -8,19 +8,19 @@ import { faEnvelope, faUser, faClipboardUser, faRecordVinyl} from '@fortawesome/
 
 function WhyUs() {
     return (
-        <section class="why_section layout_padding">
-            <div class="container">
-                <div class="heading_container heading_center">
+        <section className="why_section layout_padding">
+            <div className="container">
+                <div className="heading_container heading_center">
                     <h2>
                     Why Choose <span>Us</span>
                     </h2>
                 </div>
-                <div class="why_container">
-                    <div class="box">
-                    <div class="img-box">
+                <div className="why_container">
+                    <div className="box">
+                    <div className="img-box">
                     <FontAwesomeIcon icon={faEnvelope} size="3x" />
                     </div>
-                    <div class="detail-box">
+                    <div className="detail-box">
                         <h5>
                         Email Messaging Service
                         </h5>
@@ -30,11 +30,11 @@ function WhyUs() {
                         </p>
                     </div>
                     </div>
-                    <div class="box">
-                    <div class="img-box">
+                    <div className="box">
+                    <div className="img-box">
                     <FontAwesomeIcon icon={faUser} size="3x" />
                     </div>
-                    <div class="detail-box">
+                    <div className="detail-box">
                         <h5>
                         Distinct Portal for Users
                         </h5>
@@ -44,11 +44,11 @@ function WhyUs() {
                         </p>
                     </div>
                     </div>
-                    <div class="box">
-                    <div class="img-box">
+                    <div className="box">
+                    <div className="img-box">
                     <FontAwesomeIcon icon={faClipboardUser} size="3x"/>
                     </div>
-                    <div class="detail-box">
+                    <div className="detail-box">
                         <h5>
                         Attendance System
                         </h5>
@@ -58,11 +58,11 @@ function WhyUs() {
                         </p>
                     </div>
                     </div>
-                    <div class="box">
-                    <div class="img-box">
+                    <div className="box">
+                    <div className="img-box">
                     <FontAwesomeIcon icon={faRecordVinyl} size="3x" />
                     </div>
-                    <div class="detail-box">
+                    <div className="detail-box">
                         <h5>
                         Score Management
                         </h5>
@@ -73,7 +73,7 @@ function WhyUs() {
                     </div>
                     </div>
                 </div>
-                <div class="btn-box">
+                <div className="btn-box">
                     <Link to="">
                     Read More
                     </Link>

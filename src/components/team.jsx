@@ -9,23 +9,23 @@ function Team() {
         "Earl Martinez", "Josephine Allard"]
 
     return (
-        <section class="team_section layout_padding">
-            <div class="container-fluid">
-            <div class="heading_container heading_center">
-                <h2 class="mt-5">
+        <section className="team_section layout_padding">
+            <div className="container-fluid">
+            <div className="heading_container heading_center">
+                <h2 className="mt-5">
                 Our <span> Team</span>
                 </h2>
             </div>
 
-            <div class="team_container">
-                <div class="row">
+            <div className="team_container">
+                <div className="row">
                 {allImages.map((image, key) => (
-                <div class="col-lg-3 col-sm-6">
-                    <div class="box ">
-                    <div class="img-box">
+                <div key={key} className="col-lg-3 col-sm-6">
+                    <div className="box ">
+                    <div className="img-box">
                         <img key={key} src={image} alt={`${key}`} />    
                     </div>
-                    <div class="detail-box">
+                    <div className="detail-box">
                         <h5>
                         {teamsName[key]}
                         </h5>
@@ -33,7 +33,7 @@ function Team() {
                         Marketing Head
                         </p>
                     </div>
-                    <div class="social_box">
+                    <div className="social_box">
                     <Link to="">
                         <FontAwesomeIcon icon={faFacebook} size="1x" />
                     </Link>

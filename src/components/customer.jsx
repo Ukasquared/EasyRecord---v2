@@ -41,16 +41,16 @@ function Customer() {
 
 
     return (
-        <section class="client_section layout_padding">
-        <div class="container">
-          <div class="heading_container heading_center psudo_white_primary mb_45">
+        <section className="client_section layout_padding">
+        <div className="container">
+          <div className="heading_container heading_center psudo_white_primary mb_45">
             <h2>
               What says our <span>Customers</span>
             </h2>
           </div>
-          <div class="carousel-wrap">
+          <div className="carousel-wrap">
             <div className="over-flow">
-              <div class="owl-carousel client_owl-carousel" style={{transform: currentIndex < 3 && `translateX(-${currentIndex * 50}%)`}}>
+              <div className="owl-carousel client_owl-carousel" style={{transform: currentIndex < 3 && `translateX(-${currentIndex * 50}%)`}}>
                 {carouselItem.map((value, index) => (
                   <div key={index}  className="item">
                   <div className="box">

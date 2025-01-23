@@ -12,9 +12,7 @@ const TeacherLayout = lazy(() => import("../layouts/TeacherLayout.js"));
 const ParentLayout = lazy(() => import("../layouts/ParentLayout.js"));
 
 /***** Pages ****/
-
-const Starter = lazy(() => import("../views/Starter.js"));
-const About = lazy(() => import("../views/About.js"));
+const Profile = lazy(() => import("../components/admin-dashboard/admin-profile.jsx"));
 const Login = lazy(() => import("../layouts/login.jsx"));
 const Register = lazy(() => import("../layouts/register.jsx"));
 
@@ -39,9 +37,8 @@ const ThemeRoutes = [
                 <AdminLayout /> 
               </ProtectedLayout>) ,
     children: [
-      { path: "/dashboard-admin/starter", element: <Navigate to="/starter" /> },
-      { path: "/dashboard-admin/starter", exact: true, element: <Starter /> },
-      { path: "/dashboard-admin/about", exact: true, element: <About /> },
+      { path: "/dashboard-admin/profile", element: <Navigate to="/profile" /> },
+      { path: "/dashboard-admin/profile", exact: true, element: <Profile /> },
     ],
   },
   {

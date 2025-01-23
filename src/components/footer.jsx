@@ -8,15 +8,15 @@ function Footer() {
 
     return (
       <section>
-        <section class="info_section layout_padding2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-lg-3 info_col">
-              <div class="info_contact">
+        <section className="info_section layout_padding2">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 col-lg-3 info_col">
+              <div className="info_contact">
                 <h4>
                   Address
                 </h4>
-                <div class="contact_link_box">
+                <div className="contact_link_box">
                   <Link>
                  <i>
                  <FontAwesomeIcon icon={faLocationDot}  />
@@ -39,7 +39,7 @@ function Footer() {
                   </Link>
                 </div>
               </div>
-              <div class="info_social">
+              <div className="info_social">
                 <Link >
                   <FontAwesomeIcon icon={faFacebook} size="1x" />
                 </Link>
@@ -54,8 +54,8 @@ function Footer() {
                 </Link>
               </div>
             </div>
-            <div class="col-md-6 col-lg-3 info_col">
-              <div class="info_detail">
+            <div className="col-md-6 col-lg-3 info_col">
+              <div className="info_detail">
                 <h4>
                   Info
                 </h4>
@@ -64,31 +64,31 @@ function Footer() {
                 </p>
               </div>
             </div>
-            <div class="col-md-6 col-lg-2 mx-auto info_col">
-              <div class="info_link_box">
+            <div className="col-md-6 col-lg-2 mx-auto info_col">
+              <div className="info_link_box">
                 <h4>
                   Links
                 </h4>
-                <div class="info_links">
-                  <Link class="active" >
+                <div className="info_links">
+                  <Link className="active" >
                     Home
                   </Link>
-                  <Link class="" >
+                  <Link className="" >
                     About
                   </Link>
-                  <Link class="">
+                  <Link className="">
                     Services
                   </Link>
-                  <Link class="">
+                  <Link className="">
                     Why Us
                   </Link>
-                  <Link class="">
+                  <Link className="">
                     Team
                   </Link>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-3 info_col ">
+            <div className="col-md-6 col-lg-3 info_col ">
               <h4>
                 Subscribe
               </h4>
@@ -102,8 +102,8 @@ function Footer() {
           </div>
         </div>
       </section>
-      <section class="footer_section">
-      <div class="container">
+      <section className="footer_section">
+      <div className="container">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
           <Link href="https://html.design/"> easyrecord</Link>

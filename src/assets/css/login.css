@@ -88,7 +88,7 @@ input[type="submit"], .sign-up a{
     height: 100px;
     background-color: blue;
     opacity: 0; /* Initially hidden */
-    transition: opacity 5s ease-in-out;
+    transition: opacity 8s ease-in-out;
     right: -10rem;
     top: -10rem;
 

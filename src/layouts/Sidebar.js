@@ -1,18 +1,18 @@
 import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
-import user1 from "../assets/images/users/user4.jpg";
+// import user1 from "../assets/images/users/user4.jpg";
 import probg from "../assets/images/bg/download.jpg";
 
 const navigation = [
   {
     title: "Dashboard",
-    href: "/starter",
+    href: "/admin-dashboard",
     icon: "bi bi-speedometer2",
   },
   // add other links pertaining to admin, teacher and parent
 ];
 
-const Sidebar = () => {
+const Sidebar = ({name, profileImage}) => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
@@ -26,7 +26,7 @@ const Sidebar = () => {
         style={{ background: `url(${probg}) no-repeat` }}
       >
         <div className="p-3 d-flex">
-          <img src={user1} alt="user" width="50" className="rounded-circle" />
+          <img src={profileImage} alt="user" width="50" className="rounded-circle" />
           <Button
             color="white"
             className="ms-auto text-white d-lg-none"

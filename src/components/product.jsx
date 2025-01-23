@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 const Product = () => {
     
     return (
-  <section class="service_section layout_padding">
-    <div class="service_container">
-      <div class="container ">
-        <div class="heading_container heading_center">
+  <section className="service_section layout_padding">
+    <div className="service_container">
+      <div className="container ">
+        <div className="heading_container heading_center">
           <h2>
             Our <span>Product</span>
           </h2>
@@ -15,13 +15,13 @@ const Product = () => {
             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
           </p>
         </div>
-        <div class="row">
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
+        <div className="row">
+          <div className="col-md-4 ">
+            <div className="box ">
+              <div className="img-box">
                 <img src="images/s1.png" alt="" />
               </div>
-              <div class="detail-box">
+              <div className="detail-box">
                 <h5>
                 Absolutely Free
                 </h5>
@@ -35,12 +35,12 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
+          <div className="col-md-4 ">
+            <div className="box ">
+              <div className="img-box">
                 <img src="images/s2.png" alt="" />
               </div>
-              <div class="detail-box">
+              <div className="detail-box">
                 <h5>
                 Easy To Use
                 </h5>
@@ -53,12 +53,12 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
+          <div className="col-md-4 ">
+            <div className="box ">
+              <div className="img-box">
                 <img src="images/s3.png" alt="" />
               </div>
-              <div class="detail-box">
+              <div className="detail-box">
                 <h5>
                 Enable Parent follow up ward
                 </h5>
@@ -71,12 +71,12 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
+          <div className="col-md-4 ">
+            <div className="box ">
+              <div className="img-box">
                 <img src="images/s3.png" alt="" />
               </div>
-              <div class="detail-box">
+              <div className="detail-box">
                 <h5>
                 Mobile and Desktop Friendly
                 </h5>
@@ -90,7 +90,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div class="btn-box">
+        <div className="btn-box">
             <Link to=''> 
                 View all
             </Link>

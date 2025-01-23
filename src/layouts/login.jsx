@@ -20,7 +20,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch("/login", {
+            const response = await fetch("api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -31,8 +31,11 @@ function Login() {
 
             if (response.ok) {
                 console.log("successfully logged" + data)
+                console.log(data.token)
                 localStorage.setItem("token", data.token)
                 const decodeToken = jwtDecode(data.token)
+                console.log(decodeToken)
+                console.log(decodeToken.role)
                 let navigation = ""
                 if (decodeToken.role === "admin") {
                     navigation = "/dashboard-admin"
@@ -41,7 +44,7 @@ function Login() {
                 } else {
                      navigation = "/dashboard-parent"
                 }
-                navigate(navigation);
+                navigate(navigation, {replace: true});
             } else {
                 console.log("unsuccessful")
             }
@@ -56,15 +59,15 @@ function Login() {
         <div className="col-12 col-md-6 sign-in">
             <div className="name">
                 <form className="form-1" onSubmit={handleSubmit}>
-                    <label for="username">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label htmlFor="username">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <input type="text" name="email" value={formData.email} onChange={handleDataChange} id="email" required /><br/><br/>
-                    <label for="password">Password &nbsp;&nbsp;</label>
+                    <label htmlFor="password">Password &nbsp;&nbsp;</label>
                     <input type="password" name="password" value={formData.password} onChange={handleDataChange} id="password" required /><br/><br/>
                     <input type="submit" value="login"/>
                     <div className="remem">
                         <div className="check-box">
                             <input type="checkbox" name="remind" id="remind" value="remember"/>
-                            <label for="remind">Remember Me</label>
+                            <label htmlFor="remind">Remember Me</label>
                         </div>
                         <span><Link to="#sign up">forgot password</Link></span>
                     </div>

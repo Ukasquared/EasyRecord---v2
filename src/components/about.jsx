@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <section class="about_section layout_padding">
-    <div class="container ">
-      <div class="heading_container heading_center ">
+        <section className="about_section layout_padding">
+    <div className="container ">
+      <div className="heading_container heading_center ">
         <h2 className="mt-5">
           About <span>Us</span>
         </h2>
@@ -13,14 +13,14 @@ const About = () => {
           Magni quod blanditiis non minus sed aut voluptatum illum quisquam aspernatur ullam vel beatae rerum ipsum voluptatibus
         </p>
       </div>
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
+      <div className="row">
+        <div className="col-md-6 ">
+          <div className="img-box">
             <img src={AboutImg} style={{width: '25rem'}} alt="" />
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="detail-box">
+        <div className="col-md-6">
+          <div className="detail-box">
             <h3>
               We at EasyRecord
             </h3>
