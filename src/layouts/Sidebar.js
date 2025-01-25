@@ -6,7 +6,7 @@ import probg from "../assets/images/bg/download.jpg";
 const navigation = [
   {
     title: "Dashboard",
-    href: "/admin-dashboard",
+    href: "/dashboard-admin",
     icon: "bi bi-speedometer2",
   },
   // add other links pertaining to admin, teacher and parent
@@ -35,7 +35,7 @@ const Sidebar = ({name, profileImage}) => {
             <i className="bi bi-x"></i>
           </Button>
         </div>
-        <div className="bg-dark text-white p-2 opacity-75">Steave Rojer</div>
+        <div className="bg-dark text-white p-2 opacity-75">{name}</div>
       </div>
       <div className="p-3 mt-2">
         <Nav vertical className="sidebarNav">
