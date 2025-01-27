@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import AttendanceFilter from "./attendancefilter";
+import AttendanceList from "./attendancelist";
 
 function AdminDashboard() {
     const [attendanceData, setAttendanceData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
-    const [modal, setModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
     const [limit] = useState(10)
 
     const [studentId, setStudentId] = useState(null);
@@ -31,6 +32,7 @@ function AdminDashboard() {
                 const attendanceData = await response.json()
                 setAttendanceData(attendanceData.data)
                 setTotalPages(attendanceData.pagination.totalPages)
+                setOpenModal(true)
             } catch (error) {
                 console.error(error.message);
             }
@@ -61,6 +63,7 @@ function AdminDashboard() {
             to true when the user searches for student atendance
             - nothing else will be clickable until the user exits the modal  */}
             <AttendanceFilter onFilter={handleFilter} />
+            <AttendanceList isOpenModal={openModal} attendanceData={attendanceData}/>
 
 
         </section>

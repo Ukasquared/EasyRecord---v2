@@ -9,7 +9,9 @@ function AttendanceFilter({onFilter}) {
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
 
-    const handleFilter = () => {
+    const handleFilter = (e) => {
+        e.preventDefault()
+        
         onFilter({studentId, startDate, endDate})
     }
 
