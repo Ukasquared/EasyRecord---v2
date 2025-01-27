@@ -4,7 +4,7 @@ import { useState } from "react"
 
 
 
-function Attendance({onFilter}) {
+function AttendanceFilter({onFilter}) {
     const [studentId, setStudentId] = useState("")
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
@@ -43,4 +43,4 @@ function Attendance({onFilter}) {
     )
 }
 
-export default Attendance
+export default AttendanceFilter
