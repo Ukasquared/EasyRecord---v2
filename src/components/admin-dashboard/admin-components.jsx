@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import AttendanceFilter from "./attendancefilter";
 import AttendanceList from "./attendancelist";
+import Pagination from "./pagination";
 
 function AdminDashboard() {
     const [attendanceData, setAttendanceData] = useState([]);
@@ -49,13 +50,8 @@ function AdminDashboard() {
         setCurrentPage(1)
     }
 
-    const prevBtn = () => {
-        if (currentPage > totalPages) setCurrentPage((pageNumber) => pageNumber - 1);
-    }
+    const handlePageChange = (page) => setCurrentPage(page);
 
-    const nxtBtn = () => {
-        if (currentPage > 1) setCurrentPage((pageNumber) => pageNumber + 1);
-    }
 
     return(
         <section className="admin-component">
@@ -64,8 +60,7 @@ function AdminDashboard() {
             - nothing else will be clickable until the user exits the modal  */}
             <AttendanceFilter onFilter={handleFilter} />
             <AttendanceList isOpenModal={openModal} attendanceData={attendanceData}/>
-
-
+            <Pagination isOpenModal={openModal} totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
         </section>
     )
 }
