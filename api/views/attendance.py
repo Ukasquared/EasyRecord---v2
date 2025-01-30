@@ -21,7 +21,7 @@ def convert_date(date) -> datetime:
     return new_date
 
 app_routes.route("/get-student-attendance", methods=["GET"], strict_slashes=False)
-def get_attendance():
+def get_student_attendance():
     """ 
     fetch the attendance
     of any student in chunks
